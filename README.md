@@ -1,1 +1,2 @@
-# BME VIK Computer Science Bsc
+# BME VIK Computer Science Bsc.
+Every projekt during Bsc.
