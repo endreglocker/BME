@@ -1,0 +1,5 @@
+2 100 4 10 alma 4 keksz 7 1 1
+2 1 4 10 alma 1 keksz 7 1 1
+1 1 9 5 majom 2 pele 1 25 8
+1 1 2 3 korte 3 sas 25 3 4
+2 1 4 10 alma 5 keksz 7 1 1

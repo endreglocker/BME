@@ -1,0 +1,84 @@
+# depslib dependency file v1.0
+1652617872 source:c:\users\felhasznalo\desktop\prog_2_nagyhf\nhf\kezelofelulet.cpp
+	"tickets.hpp"
+	"vektorok.hpp"
+	"stringek.hpp"
+	"kezelofelulet.hpp"
+	"gtest_lite.h"
+	"memtrace.h"
+
+1652617947 c:\users\felhasznalo\desktop\prog_2_nagyhf\nhf\tickets.hpp
+	"stringek.hpp"
+	"memtrace.h"
+
+1652619476 c:\users\felhasznalo\desktop\prog_2_nagyhf\nhf\stringek.hpp
+	<iostream>
+	"memtrace.h"
+
+1651607729 c:\users\felhasznalo\desktop\prog_2_nagyhf\nhf\memtrace.h
+	<new>
+	<cstdio>
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<list>
+	<map>
+	<algorithm>
+	<functional>
+	<memory>
+	<iomanip>
+	<locale>
+	<typeinfo>
+	<ostream>
+	<stdexcept>
+	<ctime>
+	<iterator>
+	<regex>
+
+1652637862 c:\users\felhasznalo\desktop\prog_2_nagyhf\nhf\vektorok.hpp
+	"tickets.hpp"
+	"memtrace.h"
+
+1652607814 c:\users\felhasznalo\desktop\prog_2_nagyhf\nhf\kezelofelulet.hpp
+	"tickets.hpp"
+	"vektorok.hpp"
+	"memtrace.h"
+
+1650889514 c:\users\felhasznalo\desktop\prog_2_nagyhf\nhf\gtest_lite.h
+	<iostream>
+	<cassert>
+	<cmath>
+	<cstring>
+	<limits>
+	<cstdlib>
+	<string>
+	<fstream>
+	<iterator>
+	<regex>
+	"memtrace.h"
+
+1652630426 source:c:\users\felhasznalo\desktop\prog_2_nagyhf\nhf\main.cpp
+	<iostream>
+	"kezelofelulet.hpp"
+	"memtrace.h"
+
+1651607704 source:c:\users\felhasznalo\desktop\prog_2_nagyhf\nhf\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+	"memtrace.h"
+
+1652619305 source:c:\users\felhasznalo\desktop\prog_2_nagyhf\nhf\stringek.cpp
+	<iostream>
+	<cstring>
+	"stringek.hpp"
+	"memtrace.h"
+
+1652618847 source:c:\users\felhasznalo\desktop\prog_2_nagyhf\nhf\tickets.cpp
+	"tickets.hpp"
+	"memtrace.h"
+

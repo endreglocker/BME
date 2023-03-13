@@ -1,0 +1,84 @@
+# depslib dependency file v1.0
+1652617872 source:e:\egyetem\2. f…l…v\programoz·s alapjai 2\nagyhf\code\kezelofelulet.cpp
+	"tickets.hpp"
+	"vektorok.hpp"
+	"stringek.hpp"
+	"kezelofelulet.hpp"
+	"gtest_lite.h"
+	"memtrace.h"
+
+1652617947 e:\egyetem\2. f…l…v\programoz·s alapjai 2\nagyhf\code\tickets.hpp
+	"stringek.hpp"
+	"memtrace.h"
+
+1652619476 e:\egyetem\2. f…l…v\programoz·s alapjai 2\nagyhf\code\stringek.hpp
+	<iostream>
+	"memtrace.h"
+
+1651607729 e:\egyetem\2. f…l…v\programoz·s alapjai 2\nagyhf\code\memtrace.h
+	<new>
+	<cstdio>
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<list>
+	<map>
+	<algorithm>
+	<functional>
+	<memory>
+	<iomanip>
+	<locale>
+	<typeinfo>
+	<ostream>
+	<stdexcept>
+	<ctime>
+	<iterator>
+	<regex>
+
+1652637862 e:\egyetem\2. f…l…v\programoz·s alapjai 2\nagyhf\code\vektorok.hpp
+	"tickets.hpp"
+	"memtrace.h"
+
+1652607814 e:\egyetem\2. f…l…v\programoz·s alapjai 2\nagyhf\code\kezelofelulet.hpp
+	"tickets.hpp"
+	"vektorok.hpp"
+	"memtrace.h"
+
+1650889514 e:\egyetem\2. f…l…v\programoz·s alapjai 2\nagyhf\code\gtest_lite.h
+	<iostream>
+	<cassert>
+	<cmath>
+	<cstring>
+	<limits>
+	<cstdlib>
+	<string>
+	<fstream>
+	<iterator>
+	<regex>
+	"memtrace.h"
+
+1652630426 source:e:\egyetem\2. f…l…v\programoz·s alapjai 2\nagyhf\code\main.cpp
+	<iostream>
+	"kezelofelulet.hpp"
+	"memtrace.h"
+
+1651607704 source:e:\egyetem\2. f…l…v\programoz·s alapjai 2\nagyhf\code\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+	"memtrace.h"
+
+1652619305 source:e:\egyetem\2. f…l…v\programoz·s alapjai 2\nagyhf\code\stringek.cpp
+	<iostream>
+	<cstring>
+	"stringek.hpp"
+	"memtrace.h"
+
+1652618847 source:e:\egyetem\2. f…l…v\programoz·s alapjai 2\nagyhf\code\tickets.cpp
+	"tickets.hpp"
+	"memtrace.h"
+
