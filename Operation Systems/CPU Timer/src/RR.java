@@ -21,7 +21,7 @@ public class RR {
     public void runRR() {
         Task currentRR;
 
-        if(reloaded == true){
+        if (reloaded) {
             currentRR = RoundRobinList.pop();
             RoundRobinList.add(currentRR);
             RR_constraint = 2;
@@ -44,9 +44,10 @@ public class RR {
             currentRR = RoundRobinList.pop();
             RoundRobinList.add(currentRR);
             RR_constraint = 2;
-            reloaded = true;
+            if (RoundRobinList.size() == 1) {
+                reloaded = true;
+            }
         }
-
 
 
     }
