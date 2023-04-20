@@ -1,0 +1,440 @@
+A,0,3,3
+B,1,6,3
+C,1,8,2
+
+Main results:
+Wrong answer in line 1 of 2 in output:
+ABDC
+A:0,B:5,C:8,D:4
+
+for input:
+A,1,0,6
+B,1,1,5
+C,0,5,5
+D,0,7,2
+
+ABABABDC
+
+
+Wrong answer in line 1 of 2 in output:
+ABCDC
+A:0,B:2,C:2,D:0
+
+for input:
+A,1,0,3
+B,1,1,3
+C,0,5,3
+D,0,7,1
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABDC
+A:0,B:4,C:5,D:3
+
+for input:
+A,1,0,5
+B,1,1,4
+C,0,5,3
+D,0,6,1
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABDC
+A:0,B:4,C:6,D:3
+
+for input:
+A,1,0,5
+B,1,1,4
+C,0,5,3
+D,0,6,2
+
+
+
+Wrong answer in line 1 of 2 in output:
+PQ
+P:0,Q:5
+
+for input:
+P,1,0,6
+Q,1,1,6
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABC
+A:0,B:4,C:5
+
+for input:
+A,1,0,4
+B,1,0,4
+C,0,3,3
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABCDBEBFIGH
+A:0,B:5,C:0,D:0,E:0,F:0,G:5,H:6,I:3
+
+for input:
+A,1,2,2
+B,0,5,4
+C,1,7,2
+D,1,9,2
+E,1,12,1
+F,1,14,6
+G,0,17,1
+H,0,17,1
+I,1,17,2
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+AB
+A:0,B:8
+
+for input:
+A,1,2,9
+B,1,3,1
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABCDEDC
+A:0,B:0,C:11,D:5,E:0
+
+for input:
+A,0,0,1
+B,1,2,1
+C,0,3,2
+D,1,4,6
+E,1,6,5
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABCECBD
+A:0,B:7,C:4,D:10,E:0
+
+for input:
+A,0,2,2
+B,0,4,5
+C,1,5,3
+D,0,6,4
+E,1,7,4
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ADACB
+A:1,C:8,D:2,B:8
+
+for input:
+A,1,2,7
+B,0,4,2
+C,1,2,2
+D,1,2,1
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABCBCDEFA
+A:13,B:2,C:2,D:5,E:4,F:5
+
+for input:
+A,0,0,6
+B,1,2,4
+C,1,4,3
+D,1,4,2
+E,0,7,2
+F,0,8,2
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABDBC
+A:0,B:5,C:6,D:0
+
+for input:
+A,1,2,4
+B,1,5,4
+C,0,8,9
+D,1,8,4
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABCA
+A:7,B:0,C:6
+
+for input:
+A,0,0,4
+B,1,1,6
+C,1,1,1
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABACEAD
+A:3,B:0,C:0,D:5,E:0
+
+for input:
+A,0,0,5
+B,0,1,1
+C,0,3,1
+D,0,3,3
+E,0,4,1
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABDC
+A:0,B:0,C:5,D:1
+
+for input:
+A,1,3,1
+B,1,5,3
+C,1,6,5
+D,1,7,3
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABDCBDBC
+A:0,B:6,C:9,D:5
+
+for input:
+A,1,3,1
+B,1,6,6
+C,1,7,8
+D,1,7,4
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABCBA
+A:7,B:5,C:4
+
+for input:
+A,1,3,7
+B,1,3,6
+C,1,5,1
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABCB
+A:0,B:4,C:0
+
+for input:
+A,1,1,2
+B,1,2,8
+C,1,5,3
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABCDEFED
+A:0,B:0,C:1,D:7,E:6,F:4
+
+for input:
+A,1,3,1
+B,1,6,1
+C,0,6,2
+D,1,9,22
+E,1,12,6
+F,1,15,1
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABCDEFD
+A:0,B:0,C:1,D:7,E:0,F:3
+
+for input:
+A,1,3,1
+B,1,6,1
+C,1,6,2
+D,0,9,22
+E,1,12,6
+F,1,15,1
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABACDE
+A:1,B:0,C:3,D:5,E:7
+
+for input:
+A,0,2,4
+B,0,4,1
+C,0,4,2
+D,0,4,2
+E,0,4,2
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABDACFEG
+A:3,G:22,B:3,C:6,D:3,E:11,F:7
+
+for input:
+A,1,1,5
+B,1,2,2
+C,1,3,5
+D,1,4,1
+E,0,4,8
+F,0,7,1
+G,0,1,10
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABACDCEFE
+A:4,B:0,C:3,D:0,E:3,F:0
+
+for input:
+A,1,3,3
+B,1,5,4
+C,0,8,3
+D,1,11,1
+E,0,14,5
+F,0,15,3
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ACBCAD
+A:7,B:4,C:2,D:10
+
+for input:
+A,1,1,5
+B,1,1,1
+C,1,2,6
+D,0,3,2
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABDBCFEG
+A:0,B:2,C:6,D:1,E:4,F:2,G:3
+
+for input:
+A,1,2,4
+B,1,5,4
+C,1,5,1
+D,1,7,1
+E,0,10,2
+F,1,10,2
+G,0,13,3
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABEFGDC
+A:0,B:0,C:8,D:7,E:3,F:2,G:1
+
+for input:
+A,0,1,1
+B,1,3,3
+C,0,3,5
+D,0,3,1
+E,1,3,2
+F,1,6,1
+G,1,8,1
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ABDC
+A:0,B:0,C:11,D:10
+
+for input:
+A,1,1,1
+B,1,2,10
+C,0,2,3
+D,1,2,1
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+ACDABE
+A:5,B:8,C:0,D:3,E:8
+
+for input:
+A,0,0,3
+B,0,0,3
+C,1,2,3
+D,1,2,2
+E,0,3,7
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+BCDAE
+A:7,B:0,C:0,D:3,E:7
+
+for input:
+A,0,0,3
+B,0,0,2
+C,1,2,3
+D,1,2,2
+E,0,3,7
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+BEDEABC
+B:8,E:2,A:4,C:8,D:1
+
+for input:
+A,1,2,3
+B,0,0,2
+C,0,2,3
+D,1,2,2
+E,1,1,3
+
+
+
+
+Wrong answer in line 1 of 2 in output:
+BACBDE
+B:5,A:0,C:3,D:7,E:9
+
+for input:
+A,1,1,3
+B,0,0,3
+C,1,1,2
+D,0,1,2
+E,0,1,3
+
+
+
+
