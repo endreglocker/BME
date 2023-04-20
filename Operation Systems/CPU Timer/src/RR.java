@@ -8,34 +8,47 @@ public class RR {
     private int RR_constraint;
     private int time;
 
+    private static boolean reloaded = false;
+
     public RR(LinkedList<Task> RoundRobinList, LinkedList<Task> afterQueue, Task previousTask, int RR_constraint, int time) {
         this.RoundRobinList = RoundRobinList;
         this.afterQueue = afterQueue;
         this.previousTask = previousTask;
         this.RR_constraint = RR_constraint;
         this.time = time;
-
     }
 
     public void runRR() {
-        Task currentRR = RoundRobinList.get(0);
-        if (previousTask != currentRR) System.out.print(currentRR.getLetter());
+        Task currentRR;
+
+        if(reloaded == true){
+            currentRR = RoundRobinList.pop();
+            RoundRobinList.add(currentRR);
+            RR_constraint = 2;
+            reloaded = false;
+        }
+
+        currentRR = RoundRobinList.get(0);
+        if (previousTask != currentRR && currentRR.getBurstTime() > 0) System.out.print(currentRR.getLetter());
 
         currentRR.setBurstTime(currentRR.getBurstTime() - 1);
         previousTask = currentRR;
         RR_constraint--;
 
-        if (currentRR.getBurstTime() == 0) {
+        if (currentRR.getBurstTime() <= 0) {
             currentRR = RoundRobinList.pop();
             currentRR.setCompletionTime(time + 1);
             afterQueue.add(currentRR);
             RR_constraint = 2;
-
         } else if (currentRR.getBurstTime() > 0 && RR_constraint == 0) {
             currentRR = RoundRobinList.pop();
             RoundRobinList.add(currentRR);
             RR_constraint = 2;
+            reloaded = true;
         }
+
+
+
     }
 
     public LinkedList<Task> getRoundRobinList() {
