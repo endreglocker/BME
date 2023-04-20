@@ -4,6 +4,8 @@ public class Task {
     private int arrivalTime;
     private int burstTime;
 
+    private int innerCounter;
+
     /**
      * WatitingTime = TurnAroundTime - BurstTime = CompletionTime - ArrivalTime - BurstTime
      * EffectiveTime = ArrivalTime + BurstTime
@@ -19,6 +21,7 @@ public class Task {
         this.burstTime = CPU_burst;
         completionTime = 0;
         effectiveTime = startTime + CPU_burst;
+        innerCounter = 1;
     }
 
     public char getLetter() {
@@ -67,5 +70,17 @@ public class Task {
 
     public String toString() {
         return "Letter: " + letter + ", Priority: " + priority + ", Start Time: " + arrivalTime + ", CPU Burst: " + burstTime + ", Wait Time: " + getWaitTime() + "\n";
+    }
+
+    public void increaseInnerCounter() {
+        innerCounter++;
+    }
+
+    public void decreaseInnerCounter() {
+        innerCounter--;
+    }
+
+    public int getInnerCounter() {
+        return innerCounter;
     }
 }

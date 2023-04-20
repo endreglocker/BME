@@ -7,10 +7,6 @@ public class Main {
         String inputString;
         LinkedList<Task> taskList = new LinkedList<>();
 
-
-        /**
-         * Input
-         */
         while (scanner.hasNextLine()) {
             try {
                 inputString = scanner.nextLine();
@@ -18,102 +14,65 @@ public class Main {
             } catch (Exception e) {
                 reorderingTask(taskList);
             }
-
         }
-
-        /**
-         * Reordering
-         */
-        LinkedList<Task> RoudRobinList = new LinkedList<>();
-        LinkedList<Task> SRTFList = new LinkedList<>();
-        reorderingTask(taskList);
-        sortingTasks(taskList, RoudRobinList, SRTFList);
-
-        /**
-         * Calculations
-         */
 
         runCalculations(taskList);
 
-
-        /**
-         * Final print
-         */
-        /*
-        for (RawData rawData : rawDataList) {
-            System.out.print(rawData.toString() + "\n");
-        }
-
-        for (RawData rawData : rawDataList) {
-            System.out.print(rawData.getLetter());
-        }
-        */
-        //new RR(RoudRobinList).runRR();
     }
 
     static void runCalculations(LinkedList<Task> taskList) {
         int time = 0;
         int RR_constraint = 2;
-        LinkedList<Task> originalData = taskList;
-        LinkedList<Task> afterQueue = new LinkedList<>();
-
         Task previousTask = null;
+
+        LinkedList<Task> originalData = new LinkedList<>(taskList);
+        LinkedList<Task> afterQueue = new LinkedList<>();
         LinkedList<Task> RoundRobinList = new LinkedList<>();
         LinkedList<Task> SRTFList = new LinkedList<>();
-        /**
-         * Order by start time
-         * Sorting by priority
-         */
+
+        time += taskList.get(0).getArrivalTime();
+
         reorderingTask(taskList);
-        sortingTasks(taskList, RoundRobinList, SRTFList);
 
-        while (RoundRobinList.size() > 0 || SRTFList.size() > 0) {
-            if (RoundRobinList.size() > 0) {
-                Task currentRR = RoundRobinList.get(0);
-                if (previousTask != currentRR) System.out.print(currentRR.getLetter());
 
-                previousTask = currentRR;
-                RR_constraint--;
-                currentRR.setBurstTime(currentRR.getBurstTime() - 1);
-
-                if (currentRR.getBurstTime() == 0) {
-                    currentRR = RoundRobinList.pop();
-                    /**
-                     * Attention!
-                     * Probably time + 1 is wrong
-                     */
-                    currentRR.setCompletionTime(time + 1);
-                    afterQueue.add(currentRR);
-                } else if (currentRR.getBurstTime() > 0 && RR_constraint == 0) {
-                    /**
-                     * Adding the task to the end of the queue
-                     */
-                    currentRR = RoundRobinList.pop();
-                    RoundRobinList.add(currentRR);
-                    RR_constraint = 2;
-                }
-
+        while (RoundRobinList.size() > 0 || SRTFList.size() > 0 || taskList.size() > 0) {
+            if (taskList.size() > 0) {
+                sortingTasks(taskList, RoundRobinList, SRTFList, time);
             }
 
-            if (SRTFList.size() > 0) {
-                Task currentSRTF = SRTFList.get(0);
-                if (previousTask != currentSRTF) System.out.println(currentSRTF.getLetter());
+            if (RoundRobinList.size() > 0) {
+                RR rr = new RR(RoundRobinList, afterQueue, previousTask, RR_constraint, time);
+                rr.runRR();
+                RoundRobinList = rr.getRoundRobinList();
+                afterQueue = rr.getAfterQueue();
+                previousTask = rr.getPreviousTask();
+                RR_constraint = rr.getRR_constraint();
+                time = rr.getTime();
 
-                previousTask = currentSRTF;
-                currentSRTF.setBurstTime(currentSRTF.getBurstTime() - 1);
+            } else if (SRTFList.size() > 0) {
+                SRTF srtf = new SRTF(SRTFList, afterQueue, previousTask, time);
+                srtf.runSRTF();
+                SRTFList = srtf.getSRTFList();
+                afterQueue = srtf.getAfterQueue();
+                previousTask = srtf.getPreviousTask();
+                time = srtf.getTime();
 
-                if (currentSRTF.getBurstTime() == 0) {
-                    currentSRTF = SRTFList.pop();
-                    /**
-                     * Attention!
-                     * Probably time + 1 is wrong
-                     */
-                    currentSRTF.setCompletionTime(time + 1);
-                    afterQueue.add(currentSRTF);
-                }
             }
 
             time++;
+            increaseTime(RoundRobinList, SRTFList);
+        }
+
+
+        print(originalData, afterQueue);
+    }
+
+    static void increaseTime(LinkedList<Task> RoundRobinList, LinkedList<Task> SRTFList) {
+        for (Task task : SRTFList) {
+            task.increaseInnerCounter();
+        }
+        for (Task task : RoundRobinList) {
+            task.increaseInnerCounter();
         }
     }
 
@@ -127,12 +86,9 @@ public class Main {
     }
 
     static void reorderingTask(LinkedList<Task> taskList) {
-        /**
-         * Sort by start time
-         */
         taskList.sort((o1, o2) -> o1.getArrivalTime() - o2.getArrivalTime());
 
-        /**
+        /*
          * Sort by priority
          * If start time is the same, the higher priority will be first
          */
@@ -151,15 +107,35 @@ public class Main {
         */
     }
 
-    static void sortingTasks(LinkedList<Task> taskList, LinkedList<Task> RoundRobinList, LinkedList<Task> SRTFList) {
-        for (Task task : taskList) {
-            if (task.getPriority() == 0) {
-                SRTFList.add(task);
+    static void sortingTasks(LinkedList<Task> taskList, LinkedList<Task> RoundRobinList, LinkedList<Task> SRTFList, int time) {
+        while (taskList.size() > 0 && taskList.get(0).getArrivalTime() == time) {
+            if (taskList.get(0).getPriority() == 0) {
+                SRTFList.add(taskList.pop());
                 SRTFList.sort((o1, o2) -> o1.getBurstTime() - o2.getBurstTime());
-            } else if (task.getPriority() == 1) {
-                RoundRobinList.add(task);
+            } else if (taskList.get(0).getPriority() == 1) {
+                RoundRobinList.add(taskList.pop());
             }
         }
     }
+
+
+    static void print(LinkedList<Task> originalData, LinkedList<Task> afterQueue) {
+        System.out.println("");
+
+        for (int i = 0; i < originalData.size() - 1; i++) {
+            for (Task task : afterQueue) {
+                if (originalData.get(i).getLetter() == task.getLetter()) {
+                    System.out.print(task.getLetter() + ":" + task.getInnerCounter() + ",");
+                }
+            }
+        }
+
+        for (Task task : afterQueue) {
+            if (originalData.get(originalData.size() - 1).getLetter() == task.getLetter()) {
+                System.out.print(task.getLetter() + ":" + task.getInnerCounter());
+            }
+        }
+    }
+
 }
 

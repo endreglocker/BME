@@ -1,62 +1,59 @@
-import java.util.List;
+import java.util.LinkedList;
 
-/**
- * Priority = 1
- */
 public class RR {
-    private List<Task> taskList;
-    int sum;
+    private LinkedList<Task> RoundRobinList;
+    private LinkedList<Task> afterQueue;
+    private Task previousTask;
 
-    public RR(List<Task> taskList) {
-        this.taskList = taskList;
-        sum = 0;
+    private int RR_constraint;
+    private int time;
+
+    public RR(LinkedList<Task> RoundRobinList,LinkedList<Task> afterQueue, Task previousTask, int RR_constraint, int time) {
+        this.RoundRobinList = RoundRobinList;
+        this.afterQueue = afterQueue;
+        this.previousTask = previousTask;
+        this.RR_constraint = RR_constraint;
+        this.time = time;
 
     }
+    public void runRR(){
+        Task currentRR = RoundRobinList.get(0);
+        if (previousTask != currentRR) System.out.print(currentRR.getLetter());
+        currentRR.decreaseInnerCounter();
+        currentRR.setBurstTime(currentRR.getBurstTime() - 1);
+        previousTask = currentRR;
+        RR_constraint--;
 
-    public List<Task> RR_RR_comparison() {
+        if (currentRR.getBurstTime() == 0) {
+            currentRR = RoundRobinList.pop();
+            currentRR.setCompletionTime(time + 1);
+            afterQueue.add(currentRR);
+            RR_constraint = 2;
 
-        return taskList;
-    }
-
-    public void runRR() {
-        Task previous = null;
-        Task current;
-        int time = 0;
-
-        while (true) {
-            sum = 0;
-            current = taskList.get(0);
-            if (current != previous || taskList.size() == 1) {
-                System.out.print(current.getLetter());
-                if (current.getBurstTime() >= 2) {
-                    current.setBurstTime(current.getBurstTime() - 2);
-                } else if (current.getBurstTime() == 1) {
-                    current.setBurstTime(current.getBurstTime() - 1);
-                }
-            }
-
-            if (current.getBurstTime() > 0) {
-                taskList.remove(0);
-                taskList.add(current);
-            }
-            if (current.getBurstTime() <= 0) taskList.remove(0);
-
-            previous = current;
-            sum_of_burst();
-            if (sum == 0 || taskList.size() == 0) break;
-            time++;
+        } else if (currentRR.getBurstTime() > 0 && RR_constraint == 0) {
+            currentRR = RoundRobinList.pop();
+            RoundRobinList.add(currentRR);
+            RR_constraint = 2;
         }
     }
 
-    void sum_of_burst() {
-        if (taskList.size() != 0) {
-            for (Task data : taskList) {
-                sum += data.getBurstTime();
-            }
-        } else {
-            sum = 0;
-        }
-
+    public LinkedList<Task> getRoundRobinList() {
+        return RoundRobinList;
     }
 
+    public LinkedList<Task> getAfterQueue() {
+        return afterQueue;
+    }
+
+    public Task getPreviousTask() {
+        return previousTask;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public int getRR_constraint() {
+        return RR_constraint;
+    }
 }
