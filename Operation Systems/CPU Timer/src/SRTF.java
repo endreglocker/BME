@@ -16,7 +16,7 @@ public class SRTF {
     public void runSRTF() {
         Task currentSRTF = SRTFList.get(0);
         if (previousTask != currentSRTF) System.out.print(currentSRTF.getLetter());
-        currentSRTF.decreaseInnerCounter();
+
         currentSRTF.setBurstTime(currentSRTF.getBurstTime() - 1);
         previousTask = currentSRTF;
 

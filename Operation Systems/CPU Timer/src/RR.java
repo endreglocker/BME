@@ -8,7 +8,7 @@ public class RR {
     private int RR_constraint;
     private int time;
 
-    public RR(LinkedList<Task> RoundRobinList,LinkedList<Task> afterQueue, Task previousTask, int RR_constraint, int time) {
+    public RR(LinkedList<Task> RoundRobinList, LinkedList<Task> afterQueue, Task previousTask, int RR_constraint, int time) {
         this.RoundRobinList = RoundRobinList;
         this.afterQueue = afterQueue;
         this.previousTask = previousTask;
@@ -16,10 +16,11 @@ public class RR {
         this.time = time;
 
     }
-    public void runRR(){
+
+    public void runRR() {
         Task currentRR = RoundRobinList.get(0);
         if (previousTask != currentRR) System.out.print(currentRR.getLetter());
-        currentRR.decreaseInnerCounter();
+
         currentRR.setBurstTime(currentRR.getBurstTime() - 1);
         previousTask = currentRR;
         RR_constraint--;

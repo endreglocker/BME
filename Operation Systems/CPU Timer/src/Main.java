@@ -17,7 +17,6 @@ public class Main {
         }
 
         runCalculations(taskList);
-
     }
 
     static void runCalculations(LinkedList<Task> taskList) {
@@ -33,7 +32,6 @@ public class Main {
         time += taskList.get(0).getArrivalTime();
 
         reorderingTask(taskList);
-
 
         while (RoundRobinList.size() > 0 || SRTFList.size() > 0 || taskList.size() > 0) {
             if (taskList.size() > 0) {
@@ -60,20 +58,8 @@ public class Main {
             }
 
             time++;
-            increaseTime(RoundRobinList, SRTFList);
         }
-
-
         print(originalData, afterQueue);
-    }
-
-    static void increaseTime(LinkedList<Task> RoundRobinList, LinkedList<Task> SRTFList) {
-        for (Task task : SRTFList) {
-            task.increaseInnerCounter();
-        }
-        for (Task task : RoundRobinList) {
-            task.increaseInnerCounter();
-        }
     }
 
     static Task separateData(String inputString) {
@@ -125,14 +111,14 @@ public class Main {
         for (int i = 0; i < originalData.size() - 1; i++) {
             for (Task task : afterQueue) {
                 if (originalData.get(i).getLetter() == task.getLetter()) {
-                    System.out.print(task.getLetter() + ":" + task.getInnerCounter() + ",");
+                    System.out.print(task.getLetter() + ":" + task.getWaitTime() + ",");
                 }
             }
         }
 
         for (Task task : afterQueue) {
             if (originalData.get(originalData.size() - 1).getLetter() == task.getLetter()) {
-                System.out.print(task.getLetter() + ":" + task.getInnerCounter());
+                System.out.print(task.getLetter() + ":" + task.getWaitTime());
             }
         }
     }
