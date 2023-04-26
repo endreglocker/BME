@@ -1,52 +1,25 @@
 public class RawData {
-    boolean isUsed = false;
+    boolean haveSecondChance = false;
     boolean pageLock = false;
-    int ID;
+    char frame;
     int value;
-    int time = -1;
+    int time = 0;
 
-    public RawData(int ID, int value) {
-        this.ID = 0;
-        this.value = 0;
-    }
-
-    public void setPageLock(boolean pageLock) {
-        this.pageLock = pageLock;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
-
-    public void setValue(int value) {
+    public RawData(char ID, int value) {
+        this.frame = ID;
         this.value = value;
     }
 
-    public int getTime() {
-        return time;
+    public void setValue(int value) {
+        time = 0;
+        pageLock = true;
+        haveSecondChance = true;
+        this.value = value;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void increaseTime() {
+        if (time == 3) {pageLock = false;}
+        time++;
     }
 
-    public void setUsed(boolean used) {
-        isUsed = used;
-    }
-
-    public boolean isPageLock() {
-        return pageLock;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public boolean isUsed() {
-        return isUsed;
-    }
 }
