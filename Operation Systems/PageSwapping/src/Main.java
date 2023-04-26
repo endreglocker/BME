@@ -61,10 +61,6 @@ public class Main {
                     if (!taskList.get(0).pageLock) {
                         SecondChance(taskList, inputList);
                     } else {
-                        /*
-                        for (int keksz = 0; keksz < taskList.size(); keksz++) {
-                            if (!taskList.get(0).pageLock) SecondChance(taskList, inputList);
-                        }*/
                         System.out.print("*");
                         inputList.pop();
 
@@ -90,7 +86,16 @@ public class Main {
             if (taskList.get(i).value == inputList.get(0)) {
                 System.out.print("-");
                 inputList.pop();
+
+                //taskList.get(i).pageLock = false;
+
                 taskList.get(i).haveSecondChance = true;
+
+                /*
+                RawData temp = taskList.remove(i);
+                taskList.add(temp);
+                */
+
                 return true;
 
             }
