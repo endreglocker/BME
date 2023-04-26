@@ -11,15 +11,18 @@ public class RawData {
     }
 
     public void setValue(int value) {
-        time = 0;
+        time = 3;
         pageLock = true;
-        haveSecondChance = true;
+        //haveSecondChance = false;
         this.value = value;
     }
 
     public void increaseTime() {
-        if (time == 3) {pageLock = false;}
-        time++;
+        if (time == 0) {
+            pageLock = false;
+        } else {
+            time--;
+        }
     }
 
 }

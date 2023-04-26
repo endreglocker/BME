@@ -15,10 +15,10 @@ public class Main {
             inputString = scanner.nextLine();
             sortInput(inputString, inputList);
         } catch (Exception e) {
-
+            System.out.print("");
         }
 
-        /// A dirty bit bezavar! (:
+        /// Removing dirty bit! (:
         LinkedList<Integer> absList = new LinkedList<>();
         for (int temp : inputList) {
             if (temp < 0) {
@@ -47,55 +47,63 @@ public class Main {
 
     static void runTask(LinkedList<RawData> taskList, LinkedList<Integer> inputList) {
         int numberOfMemoryAccess = inputList.size();
+        //int preSize = inputList.size();
+
         int mistakeCounter = 0;
-        boolean flagged = false;
-        //boolean previuslyFlagged = false;
+        int pageLockIndex;
+        boolean flagged;
 
         while (inputList.size() > 0) {
             flagged = prefetched(taskList, inputList);
-
-            if (flagged) mistakeCounter++;
+            pageLockIndex = hasLockIndex(taskList);
 
             if (!flagged) {
-                for (int i = 0; i < taskList.size(); i++) {
-                    if (!taskList.get(0).pageLock) {
-                        SecondChance(taskList, inputList);
-                    } else {
-                        System.out.print("*");
-                        inputList.pop();
+                if (pageLockIndex == -1) {
+                    System.out.print("*");
+                    inputList.pop();
+                } else {
+                    for (int i = 0; i < 3; i++) {
+                        if (taskList.get(i).pageLock) {
+                            //i++;
+                        } else {
+                            if(taskList.get(i).haveSecondChance){
+                                RawData temp = taskList.get(i);
+                                temp.haveSecondChance = false;
+                                taskList.remove(i);
+                                taskList.add(temp);
+                                i--;
+                            }else{
+                                System.out.print(taskList.get(i).frame);
+
+                                RawData temp = taskList.get(i);
+                                taskList.remove(i);
+                                temp.setValue(inputList.pop());
+                                taskList.add(temp);
+                                break;
+                            }
+                        }
 
                     }
-                    break;
                 }
+            } else {
+                mistakeCounter++;
             }
 
 
-            for (int i = 0; i < taskList.size(); i++) {
-                taskList.get(i).increaseTime();
+            for (RawData rawData : taskList) {
+                rawData.increaseTime();
             }
-
-            //previuslyFlagged = flagged;
-            flagged = false;
         }
 
         System.out.println("\n" + (numberOfMemoryAccess - mistakeCounter));
     }
 
     static boolean prefetched(LinkedList<RawData> taskList, LinkedList<Integer> inputList) {
-        for (int i = 0; i < taskList.size(); i++) {
-            if (taskList.get(i).value == inputList.get(0)) {
+        for (RawData rawData : taskList) {
+            if (rawData.value == inputList.get(0)) {
                 System.out.print("-");
+                rawData.haveSecondChance = true;
                 inputList.pop();
-
-                //taskList.get(i).pageLock = false;
-
-                taskList.get(i).haveSecondChance = true;
-
-                /*
-                RawData temp = taskList.remove(i);
-                taskList.add(temp);
-                */
-
                 return true;
 
             }
@@ -103,21 +111,12 @@ public class Main {
         return false;
     }
 
-    static void SecondChance(LinkedList<RawData> taskList, LinkedList<Integer> inputList) {
-        if (!taskList.get(0).haveSecondChance) {
-            System.out.print(taskList.get(0).frame);
-
-            /// set time & lock & value
-            taskList.get(0).setValue(inputList.pop());
-
-            RawData temp = taskList.pop();
-            taskList.add(temp);
-
-        } else {
-            taskList.get(0).haveSecondChance = false;
-            RawData temp = taskList.pop();
-            taskList.add(temp);
+    static int hasLockIndex(LinkedList<RawData> taskList) {
+        for (int i = 0; i < taskList.size(); i++) {
+            if (!taskList.get(i).pageLock) return i;
         }
+
+        return -1;
     }
 }
 
