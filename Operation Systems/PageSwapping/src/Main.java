@@ -66,13 +66,13 @@ public class Main {
                         if (taskList.get(i).pageLock) {
                             //i++;
                         } else {
-                            if(taskList.get(i).haveSecondChance){
+                            if (taskList.get(i).haveSecondChance) {
                                 RawData temp = taskList.get(i);
                                 temp.haveSecondChance = false;
                                 taskList.remove(i);
                                 taskList.add(temp);
                                 i--;
-                            }else{
+                            } else {
                                 System.out.print(taskList.get(i).frame);
 
                                 RawData temp = taskList.get(i);
