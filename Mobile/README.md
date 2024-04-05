@@ -5,8 +5,7 @@ Információk [itt](https://viauac00.github.io/laborok/hf)
 ## Mobil- és webes szoftverek
 ### 2023.10.21.                     
 ### Sport tracker alkalmazás        
-### Glocker Endre - (KBC838)        
-### glocker.endre@edu.bme.hu        
+### Glocker Endre
 ### Laborvezető: Szénássy Márton    
 
 ## Bemutatás
