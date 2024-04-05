@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Sport Tracker</string>
+    <string name="remove">Remove</string>
+    <string name="new_user"></string>
+    <string name="new_user_hint">Name</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="new_sport"></string>
+    <string name="circle">Pie Chart</string>
+    <string name="bar">Bar Chart</string>
+    <string name="height">Height</string>
+    <string name="your_height_cm">Your height (cm):</string>
+    <string name="your_name">Your name:</string>
+    <string name="weight_kg">Weight (kg):</string>
+    <string name="weight">Weight</string>
+    <string name="sex">Sex:</string>
+    <string name="other">Other</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="calory_burnt">Calorie Burnt:</string>
+    <string name="distance">Distance:</string>
+    <string name="type_of_sport">Select Sport:</string>
+    <string name="distance_in_meter">km</string>
+    <string name="calory_burnt_in_field">kCal</string>
+    <string name="pick_date">Pick Date:</string>
+    <string name="statistics">Statistics</string>
+    <string name="age">Age:</string>
+    <string name="age_field">Age</string>
+    <string name="toolbar_name">Name</string>
+    <string name="toolbar_age">Age</string>
+    <string name="toolbar_weight">Weight</string>
+    <string name="toolbar_height">Height</string>
+    <string name="toolbar_sex">Sex</string>
+    <string name="toolbar_activity">Activity</string>
+    <string name="toolbar_date">Date</string>
+    <string name="toolbar_distance">Distance</string>
+    <string name="toolbar_calorie">Calorie</string>
+
+    <string-array name="sport_types">
+        <item>Run</item>
+        <item>Walk</item>
+        <item>Biking</item>
+        <item>Swim</item>
+        <item>Football</item>
+        <item>Basketball</item>
+    </string-array>
+</resources>
